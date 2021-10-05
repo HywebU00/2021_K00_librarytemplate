@@ -335,10 +335,8 @@
 // 極小尺寸
 // $screen-xs-flex: 320px !default;
 @mixin flex-xs($col, $m-gutter){
-  @media (min-width: $screen-xs-flex) {
     flex-basis: calc(100% / 12 * #{$col} - #{$m-gutter});
     max-width: calc(100% / 12 * #{$col} - #{$m-gutter});
-  }
 }
 
 // 手機

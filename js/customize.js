@@ -17,6 +17,19 @@ $(function() {
             return $('<button type="button" aria-label="' + title + '"/>').text(title);
         }
     });
+    //cp輪播
+    $('.cpSlider').slick({
+        mobileFirst: true,
+        dots: false,
+        arrows: true,
+        infinite: true,
+        speed: 500,
+        autoplay: false,
+        fade: true,
+        lazyLoaded: true,
+        lazyLoad: 'ondemand',
+        ease: 'ease'
+    });
     // 廣告輪播
     $('.adSlider').slick({
         mobileFirst: true,
@@ -140,6 +153,55 @@ $(function() {
             }
         }]
     });
+    $('.bookSlider').slick({
+        mobileFirst: true,
+        dots: false,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        autoplay: false,
+        arrow: true,
+        lazyLoaded: true,
+        lazyLoad: 'ondemand',
+        ease: 'ease',
+        responsive: [{
+            breakpoint: 1200,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                arrows: true
+            }
+        }, {
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                arrows: true
+            }
+        }, {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                arrows: true
+            }
+        }, {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                arrows: true
+            }
+        }, {
+            breakpoint: 0,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true
+            }
+        }],
+    });
     // cp_photo
     $('.Slider-for').on('init reInit afterChange', function(event, slick, currentSlide) {
         var i = (currentSlide ? currentSlide : 0) + 1;
@@ -166,4 +228,23 @@ $(function() {
         focusOnSelect: true,
         infinite: true
     });
+
+    $('.nav_readerArea').hide();
+
+    $('.reader_btn-1').click(function(e) {
+        $('.nav_readerArea-1').fadeToggle();
+    });
+
+    $('.nav_readerArea-1 .close').click(function(e) {
+        $('.nav_readerArea-1').fadeOut();
+    });
+
+    $('.reader_btn-2').click(function(e) {
+        $('.nav_readerArea-2').fadeToggle();
+    });
+
+    $('.nav_readerArea-2 .close').click(function(e) {
+        $('.nav_readerArea-2').fadeOut();
+    });
+
 });

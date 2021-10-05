@@ -92,6 +92,37 @@
         @include make-lg-column(8);
     }
 }
+
+.col-3-9 {
+    .col {
+        @include make-xs-column(12);
+        @include make-sm-column(3);
+        @include make-md-column(3);
+        @include make-lg-column(3);
+    }
+    .col:nth-of-type(2n) {
+        @include make-xs-column(12);
+        @include make-sm-column(9);
+        @include make-md-column(9);
+        @include make-lg-column(9);
+    }
+}
+
+.col-9-3 {
+    .col {
+        @include make-xs-column(12);
+        @include make-sm-column(9);
+        @include make-md-column(9);
+        @include make-lg-column(9);
+    }
+    .col:nth-of-type(2n) {
+        @include make-xs-column(12);
+        @include make-sm-column(3);
+        @include make-md-column(3);
+        @include make-lg-column(3);
+    }
+}
+
 // 六欄 2-2-2-2-2-2
 .col-2-2-2-2-2-2 {
     .col {

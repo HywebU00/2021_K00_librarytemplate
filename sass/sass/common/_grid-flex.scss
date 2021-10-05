@@ -6,7 +6,7 @@
 // 子層欄寬（自由）: @include flex-瀏覽器寬度(欄數, margin);
 
 // step 0、設定 flex 的 margin gutter
-$m-gutter: 4px;
+$m-gutter: 15px;
 
 ////////////////////////////////////////////////////
 ////////////////// 均分 equal ///////////////////////
@@ -16,24 +16,28 @@ $m-gutter: 4px;
 .Flex-set{
     // 啟動flex
     // 位置：sass/sass/common/_extend.scss
-    @extend %flex_set;
+    @extend %flex_set;    
+}
 
-    // sampl樣式設定
-    .col{
-        background: #485b8a;
-        color: #fff;
-        margin: 4px 0;
-        p{ color: rgba(255,255,255,.5); }
+[class*="flex-"] {
+    .Flex-set{
+        .col{
+            @include screen('mobile') {
+                @include gutter(0);
+            }
+        }
     }
 }
+
+
 
 /////////////////////// step 2、子層設定欄寬
-.flex-equal-3, .flex-equal-5, .flex-equal-7,
-.flex-equal-9, .flex-equal-11{
-    .Flex-set{
-        .col{ background: #00b0c6; }
-    }
-}
+// .flex-equal-3, .flex-equal-5, .flex-equal-7,
+// .flex-equal-9, .flex-equal-11{
+//     .Flex-set{
+//         .col{ background: #00b0c6; }
+//     }
+// }
 
 .flex-equal-2{
     .Flex-set{
@@ -78,94 +82,94 @@ $m-gutter: 4px;
         }
     }
 }
-.flex-equal-5{
-    .Flex-set{
-        .col{
-            @include flex-xs-equal(1, 0px);
-            @include flex-sm-equal(2, $m-gutter);
-            @include flex-md-equal(5, $m-gutter);
-            @include flex-lg-equal(5, $m-gutter);
-            @include gutter();
-        }
-    }
-}
-.flex-equal-6{
-    .Flex-set{
-        .col{
-            @include flex-xs-equal(1, 0px);
-            @include flex-sm-equal(2, $m-gutter);
-            @include flex-md-equal(6, $m-gutter);
-            @include flex-lg-equal(6, $m-gutter);
-            @include gutter();
-        }
-    }
-}
-.flex-equal-7{
-    .Flex-set{
-        .col{
-            @include flex-xs-equal(1, 0px);
-            @include flex-sm-equal(3, $m-gutter);
-            @include flex-md-equal(4, $m-gutter);
-            @include flex-lg-equal(7, $m-gutter);
-            @include gutter();
-        }
-    }
-}
-.flex-equal-8{
-    .Flex-set{
-        .col{
-            @include flex-xs-equal(2, 2px);
-            @include flex-sm-equal(4, $m-gutter);
-            @include flex-md-equal(6, $m-gutter);
-            @include flex-lg-equal(8, $m-gutter);
-            @include gutter();
-        }
-    }
-}
-.flex-equal-9{
-    .Flex-set{
-        .col{
-            @include flex-xs-equal(2, 2px);
-            @include flex-sm-equal(3, $m-gutter);
-            @include flex-md-equal(6, $m-gutter);
-            @include flex-lg-equal(9, $m-gutter);
-            @include gutter();
-        }
-    }
-}
-.flex-equal-10{
-    .Flex-set{
-        .col{
-            @include flex-xs-equal(4, 2px);
-            @include flex-sm-equal(6, $m-gutter);
-            @include flex-md-equal(8, $m-gutter);
-            @include flex-lg-equal(10, $m-gutter);
-            @include gutter();
-        }
-    }
-}
-.flex-equal-11{
-    .Flex-set{
-        .col{
-            @include flex-xs-equal(3, 2px);
-            @include flex-sm-equal(5, $m-gutter);
-            @include flex-md-equal(7, $m-gutter);
-            @include flex-lg-equal(11, $m-gutter);
-            @include gutter();
-        }
-    }
-}
-.flex-equal-12{
-    .Flex-set{
-        .col{
-            @include flex-xs-equal(3, 2px);
-            @include flex-sm-equal(6, $m-gutter);
-            @include flex-md-equal(9, $m-gutter);
-            @include flex-lg-equal(12, $m-gutter);
-            @include gutter();
-        }
-    }
-}
+// .flex-equal-5{
+//     .Flex-set{
+//         .col{
+//             @include flex-xs-equal(1, 0px);
+//             @include flex-sm-equal(2, $m-gutter);
+//             @include flex-md-equal(5, $m-gutter);
+//             @include flex-lg-equal(5, $m-gutter);
+//             @include gutter();
+//         }
+//     }
+// }
+// .flex-equal-6{
+//     .Flex-set{
+//         .col{
+//             @include flex-xs-equal(1, 0px);
+//             @include flex-sm-equal(2, $m-gutter);
+//             @include flex-md-equal(6, $m-gutter);
+//             @include flex-lg-equal(6, $m-gutter);
+//             @include gutter();
+//         }
+//     }
+// }
+// .flex-equal-7{
+//     .Flex-set{
+//         .col{
+//             @include flex-xs-equal(1, 0px);
+//             @include flex-sm-equal(3, $m-gutter);
+//             @include flex-md-equal(4, $m-gutter);
+//             @include flex-lg-equal(7, $m-gutter);
+//             @include gutter();
+//         }
+//     }
+// }
+// .flex-equal-8{
+//     .Flex-set{
+//         .col{
+//             @include flex-xs-equal(2, 2px);
+//             @include flex-sm-equal(4, $m-gutter);
+//             @include flex-md-equal(6, $m-gutter);
+//             @include flex-lg-equal(8, $m-gutter);
+//             @include gutter();
+//         }
+//     }
+// }
+// .flex-equal-9{
+//     .Flex-set{
+//         .col{
+//             @include flex-xs-equal(2, 2px);
+//             @include flex-sm-equal(3, $m-gutter);
+//             @include flex-md-equal(6, $m-gutter);
+//             @include flex-lg-equal(9, $m-gutter);
+//             @include gutter();
+//         }
+//     }
+// }
+// .flex-equal-10{
+//     .Flex-set{
+//         .col{
+//             @include flex-xs-equal(4, 2px);
+//             @include flex-sm-equal(6, $m-gutter);
+//             @include flex-md-equal(8, $m-gutter);
+//             @include flex-lg-equal(10, $m-gutter);
+//             @include gutter();
+//         }
+//     }
+// }
+// .flex-equal-11{
+//     .Flex-set{
+//         .col{
+//             @include flex-xs-equal(3, 2px);
+//             @include flex-sm-equal(5, $m-gutter);
+//             @include flex-md-equal(7, $m-gutter);
+//             @include flex-lg-equal(11, $m-gutter);
+//             @include gutter();
+//         }
+//     }
+// }
+// .flex-equal-12{
+//     .Flex-set{
+//         .col{
+//             @include flex-xs-equal(3, 2px);
+//             @include flex-sm-equal(6, $m-gutter);
+//             @include flex-md-equal(9, $m-gutter);
+//             @include flex-lg-equal(12, $m-gutter);
+//             @include gutter();
+//         }
+//     }
+// }
 
 
 //////////////////////////////////////////////////
@@ -198,7 +202,7 @@ $m-gutter: 4px;
         @include flex-sm(6, $m-gutter);
         @include flex-md(8, $m-gutter);
         @include flex-lg(8, $m-gutter);
-        @include gutter();
+        //@include gutter();
 
         &:nth-child(2){
             @include flex-xs(12, 0px);
@@ -214,13 +218,46 @@ $m-gutter: 4px;
         @include flex-sm(6, $m-gutter);
         @include flex-md(4, $m-gutter);
         @include flex-lg(4, $m-gutter);
-        @include gutter();
+        //@include gutter();
 
         &:nth-child(2){
             @include flex-xs(12, 0px);
             @include flex-sm(6, $m-gutter);
             @include flex-md(8, $m-gutter);
             @include flex-lg(8, $m-gutter);
+        }
+    }
+}
+
+.flex-9-3{
+    .col{
+        @include flex-xs(12, 0px);
+        @include flex-sm(9, $m-gutter);
+        @include flex-md(9, $m-gutter);
+        @include flex-lg(9, $m-gutter);
+        //@include gutter();
+
+        &:nth-child(2){
+            @include flex-xs(12, 0px);
+            @include flex-sm(3, $m-gutter);
+            @include flex-md(3, $m-gutter);
+            @include flex-lg(3, $m-gutter);
+        }
+    }
+}
+.flex-3-9{
+    .col{
+        @include flex-xs(12, 0px);
+        @include flex-sm(3, $m-gutter);
+        @include flex-md(3, $m-gutter);
+        @include flex-lg(3, $m-gutter);
+        //@include gutter();
+
+        &:nth-child(2){
+            @include flex-xs(12, 0px);
+            @include flex-sm(9, $m-gutter);
+            @include flex-md(9, $m-gutter);
+            @include flex-lg(9, $m-gutter);
         }
     }
 }

@@ -98,10 +98,12 @@
     left: 0;
     right: 0;
     clear: both;
-    padding: 30px 20px;
+    padding: 30px 15px;
     display: none;
     @include screen('mobile') {
         position: static;
+        padding-left: 0;
+        padding-right: 0;
     }
     ul {
         @include li-reset;
@@ -119,7 +121,7 @@
         }
         time {
             display: inline-block;
-            margin: 0 0 0 1em;
+            margin: 0 1em;
             font-size: .813em;
             color: #666;
         }

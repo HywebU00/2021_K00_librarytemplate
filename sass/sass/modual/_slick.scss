@@ -225,7 +225,8 @@
 }
 // ---------slick._scss
 // 首頁大圖輪播 
-.mpSlider {
+.mpSlider,
+.cpSlider {
     width: 100%;
     padding-bottom: 3em;
     @include gutter(0);
@@ -248,8 +249,51 @@
         }
     }
 }
+
+.cpSlider{
+    margin: 2em auto;
+    max-width: 600px;
+    .img-container{
+        background: $color-lightgray;
+         @include aspect-ratio(3, 2);
+        img{
+            border-radius: 0;
+            object-fit: contain;
+        }
+    }
+}
+
 // slick._scss
 // adSlider
+// .adSlider {
+//     @include gutter(70px);
+//     margin-bottom: 20px;
+//     @include screen('mobile') {
+//         @include gutter();
+//     }
+//     .slick-prev {
+//         left: 0;
+//         top: 0;
+//     }
+//     .slick-next {
+//         right: 0;
+//         top: 0;
+//     }
+//     .img-container {
+//         width: 165px;
+//         height: 55px;
+//         margin: 0px 15px;
+//         a {
+//             display: block;
+//             img {
+//                 margin: 0 auto;
+//                 object-fit: contain;
+//             }
+//         }
+//     }
+// }
+
+// 廣告輪播
 .adSlider {
     @include gutter(70px);
     margin-bottom: 20px;
@@ -257,11 +301,15 @@
         @include gutter();
     }
     .slick-prev {
-        left: 0;
+        background: url(../vendor/slick/icon_arrow_left_inverse.png) no-repeat center center;
+        background-size: 80%;
+        left: -15px;
         top: 0;
     }
     .slick-next {
-        right: 0;
+        background: url(../vendor/slick/icon_arrow_right_inverse.png) no-repeat center center;
+        background-size: 80%;
+        right: -15px;
         top: 0;
     }
     .img-container {
@@ -270,13 +318,59 @@
         margin: 0px 15px;
         a {
             display: block;
+            text-align: center;
             img {
                 margin: 0 auto;
-                object-fit: contain;
+            }
+        }
+        &:focus {
+            &:before {
+                content: "";
+                position: absolute;
+                z-index: 9;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                box-shadow: 0 0px 0px 3px $primaryColor inset;
             }
         }
     }
 }
+
+.bookSlider{
+    padding:0 20px;
+    .img-container{
+        width: 220px;
+        height: 280px;
+        background: #fff;
+        // border:1px solid #f7f7f7;
+        margin:0 auto;
+        box-shadow: 0 2px 10px rgba(0,0,0, .15);
+        @include aspect-ratio(2, 1);
+        img{
+            padding: 30px 0;
+            object-fit: contain;
+        }
+    }
+    .slick-prev, .slick-next{
+        background-color: transparent;
+        width: 60px;
+        height: 100px;
+        
+    }
+    .slick-prev {
+        left: -10px;
+        top:45%;
+    }
+    .slick-next {
+        right: -10px;
+        top:45%;
+    }
+}
+
 //  slick燈箱
 .lightbox_slider {
     h3 {
@@ -352,15 +446,18 @@
 // 
 // slick燈箱
 .lightbox_slider_block {
+    
+    background: #fff;
+    padding: 1em 0 3em 0;
+    clear: both;
+
     h3 {
         font-size: 1.5em;
         padding: 12px 0px 15px 0px;
         margin: 0.5em 0px 1.2em;
         border-bottom: 1px solid $primaryColor;
     }
-    background: #fff;
-    padding: 1em 0;
-    clear: both;
+
     .cppic_slider {
         @include gutter;
     }
@@ -419,6 +516,21 @@
             .caption {
                 bottom: 0 !important;
             }
+        }
+    }
+    .link{
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        color:#fff;
+        background: rgba($secondaryColor, .9);
+        padding: 0 .5em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: .875em;
+        &:hover{
+            color: #fff;
         }
     }
 }

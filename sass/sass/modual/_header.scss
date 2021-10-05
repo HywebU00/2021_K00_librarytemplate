@@ -5,10 +5,12 @@
     background: #FFF;
     box-shadow: 0px 2px 5px RGBA(0, 0, 0, 0.3);
     @extend %clearfix;
+
     @include screen('mobile') {
         position: fixed;
         width: 100%;
     }
+
     // 虛擬底色 - navigation bg
     // &:before {
     //     content: "";
@@ -38,18 +40,22 @@
         border: none;
         box-shadow: none;
         box-sizing: border-box;
+
         @include screen('mobile') {
             display: block !important;
         }
     }
+
     >.container {
         max-width: $container-max;
         overflow: visible;
         position: relative; // menu
+
         .sidebarCtrl {
             display: none;
             left: 0px;
             @extend %mobileCtrlBtn;
+
             span {
                 position: absolute;
                 background: $primaryColor;
@@ -59,20 +65,24 @@
                 left: 50%;
                 margin-left: -25%;
                 display: block;
+
                 &:nth-child(2) {
                     top: 28px;
                 }
+
                 &:nth-child(3) {
                     top: 36px;
                 }
             }
         }
+
         // search
         .searchCtrl {
             display: none;
             right: 0px;
             font-size: 0em;
             @extend %mobileCtrlBtn;
+
             &:before {
                 width: 40px;
                 height: 40px;
@@ -87,6 +97,7 @@
             }
         }
     }
+
     h1 {
         float: left;
         width: 300px;
@@ -94,19 +105,23 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+
         a {
             display: inline-block;
         }
+
         img {
             display: block;
             max-width: 300px;
             max-height: 75px;
         }
+
         @include screen('mobile') {
             padding: 2px 60px;
             width: 100%;
             text-align: center;
             height: 60px;
+
             img {
                 width: auto;
                 height: auto;
@@ -116,39 +131,32 @@
             }
         }
     }
+
     // 導覽列
     .navigation {
-
-        @include screen('mobile') {
-            display: none;
-        }
-        &.have_language {
-            padding-right: 160px;
-        }
         @extend %clearfix;
-        overflow: hidden;
-        // width: 100%;
-        // margin-bottom: .5em;
-        box-sizing:border-box;
+        box-sizing: border-box;
         display: flex;
-        //shuya 1090826
-        .navlist{
-            flex:1 1 auto;
-            margin: .1em .5em 0 0;
+        .navlist {
+            flex: 1 1 auto;
+            margin: 0.25em 0.5em 0 0;
+            @include screen('mobile') {
+                display: none;
+            }
             ul {
                 padding: 0;
                 margin: 0;
-                font-size: .875em;
+                font-size: 0.875em;
                 list-style: none;
                 display: flex;
                 justify-content: flex-end;
             }
             li {
-                flex:0 0 auto;
+                flex: 0 0 auto;
 
                 a {
                     display: block;
-                    padding: .5em;
+                    padding: 0.5em;
                     text-decoration: none;
                     @include aSetting_nocolor;
                 }
@@ -156,59 +164,93 @@
         }
 
         .language {
-            position: absolute;
-            right: 15px;
-            top: .35em;
-            font-size: .75em;
+            @include screen('mobile') {
+                display: none;
+            }
         }
     }
 }
+
 //search
 .search {
     display: flex;
     justify-content: flex-end;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     vertical-align: top;
-    font-size: .938em;
     margin: 1em .5em;
     box-sizing: border-box;
 
     @include screen('mobile') {
         display: none;
     }
+
     label {
         font-size: 0em;
     }
+
     .form_grp {
-        flex:0 0 auto;
-        margin:0;
+        display: flex;
+        flex: 0 0 auto;
+        margin: 0;
+        font-size: .938em;
+
+        select {
+            margin: 0;
+        }
+
         input {
             margin: 0 0 0 .5em;
-            padding: .2em;
             box-shadow: none;
-            width:auto;
+            width: auto;
+            line-height: 1.35em;
 
             &[type="submit"] {
                 min-width: auto;
-                padding: .2em .8em;
+                padding: .45em .8em;
             }
-            &:focus{
+
+            &:focus {
                 box-shadow: 0 0px 0px 2px $aFocus;
             }
         }
-    }
-    .btn_grp {
-        flex:0 0 auto;
-        padding:0 .5em 0;
-        margin: 0;
-        input, input[type="submit"] {
+
+        button,
+        .btn,
+        .btn-search {
             min-width: auto;
-            padding: .2em .8em;
-            margin: 0;
+            padding: 0.45em 0.8em;
+            margin: 0 .3em;
+
+            &:hover,
+            &:focus {
+                box-shadow: none !important;
+            }
         }
     }
+
+    .btn_grp {
+        flex: 0 0 auto;
+        padding: 0;
+        margin: 0 .3em;
+        font-size: .938em;
+
+        button,
+        .btn,
+        .btn-search {
+            min-width: auto;
+            padding: 0.45em 0.8em;
+            margin: 0;
+
+            &:hover,
+            &:focus {
+                box-shadow: none !important;
+            }
+        }
+    }
+
     .keywordHot {
-        flex:1 1 100%;
+        flex: 1 1 100%;
+
         ul {
             font-size: .813em;
             line-height: 1.65em;
@@ -217,83 +259,125 @@
             display: flex;
             justify-content: flex-end;
             list-style-type: none;
-            &:before {
-            }
+
+            &:before {}
+
             li {
                 margin: 0;
                 padding: .5em;
-                flex:0 0 auto;
+                flex: 0 0 auto;
             }
+
             a {
                 @include aSetting_nocolor;
             }
         }
     }
-    // m_search
-    &.m_search {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: auto;
-        padding: .8em .3em;
-        display: block;
-        height: auto;
-        position: fixed;
-        top: 60px;
-        left: 0;
-        z-index: 98;
-        background: #333;
-        display: none;
-        margin: 0;
+}
 
+// m_search
+.m_search {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: auto;
+    padding: 0.8em 0.3em;
+    display: block;
+    height: auto;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: 98;
+    background: #333;
+    display: none;
+    margin: 0;
+    label {
+        font-size: 0em;
+        line-height: 0;
+    }
+    .form_grp {
+        display: flex;
+        align-items: center;
+        @include screen('mobile'){
+            flex-wrap: wrap;
+        }
+        select{
+            width:auto;
+            @include screen('mobile'){
+                width: 100%;
+            }
+        }
         label {
-            font-size: 0em;
-            line-height: 0;
+            display: none;
+            flex: 0 0 0%;
         }
-        .form_grp {
+        input {
+            margin: 0.3em;
+            padding: 0.5em;
+            flex: 1 1 50%;
+            max-width: 70%;
+            &[type='submit'] {
+                flex: 0 1 15%;
+                margin: 0.5em;
+            }
+            @include screen('mobile'){
+                max-width: 75%;
+            }
+        }
+        .btn,
+        .btn-search {
+            min-width: auto;
+            padding: 0.5em 0.8em;
+            margin: .3em;
+            flex: 1 1 20%;
+            max-width: 25%;
+            &:hover,
+            &:focus {
+                box-shadow: none !important;
+            }
+        }
+    }
+    .btn_grp {
+        flex: 1 1 auto;
+        padding: 0.25em 0.5em;
+        border-bottom: solid 1px #444;
+        box-sizing: border-box;
+        text-align: right;
+        .btn {
+            width: auto !important;
+            padding: 0.2em 0.5em !important;
+            margin: 0;
+            background: transparent;
+            font-size: 0.875rem;
+            color: #ddd;
+            border: none;
+            &:hover,
+            &:focus {
+                color: lighten($aHover, 10);
+            }
+        }
+    }
+    .keywordHot {
+        flex: 1 1 100%;
+        ul {
+            font-size: 0.875em;
+            line-height: 1.65em;
+            margin: 0;
+            padding: 0.5em 0 0 0.5em;
             display: flex;
-
-            label {
-                display: none;
-                flex:0 0 0%;
-
+            justify-content: flex-start;
+            list-style-type: none;
+            &:before {
             }
-            input {
-                margin: .5em;
-                padding: .5em;
-                flex:1 1 50%;
-
-                &[type="submit"] {
-                    flex:0 1 15%;
-                    margin: .5em;
-
-                    &:hover, &:focus {
-                    }
-                }
-            }
-        }
-        .btn_grp {
-            flex:1 1 auto;
-            padding:.5em;
-            margin-top: .5em;
-            border-top: dotted 1px #999;
-
-            box-sizing: border-box;
-            input {
-                width: 100% !important;
-                padding: .6em .5em !important;
+            li {
                 margin: 0;
-            }
-        }
-        .keywordHot {
-            @extend %clearfix;
-            ul{
-                justify-content:flex-start;
+                padding: 0.5em;
+                flex: 0 0 auto;
             }
             a {
-                color: #FFF;
+                color: #fff;
                 &:hover,
                 &:focus {
-                    color: $primaryColor;
+                    color: lighten($aHover, 10);
                 }
             }
         }
@@ -309,9 +393,11 @@
     box-shadow: rgba(0, 0, 0, .5) 0 0 25px;
     background: rgba(0, 0, 0, .75);
     z-index: 999;
+
     @include screen('mobile') {
         background: #FFF;
     }
+
     .menu {
         >ul {
             >li {
@@ -321,6 +407,7 @@
             }
         }
     }
+
     .megamenu {
         >ul {
             >li {

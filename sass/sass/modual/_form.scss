@@ -1108,8 +1108,6 @@ select::-ms-expand {
     }
 }
 
-
-
 // form 全域行內設定
 .form_inline {
     display: flex;
@@ -1503,4 +1501,9 @@ abbr[title] {
             left: auto;
         }
     }
+}
+
+.search_grp {
+    padding: 1em;
+
 }
