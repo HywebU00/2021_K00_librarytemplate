@@ -1215,3 +1215,40 @@ body {
         text-align: left;
     }
 }
+
+//
+.participant {
+    clear: both;
+    //border:1px solid $color-gray;
+    padding: .5em 2em;
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    li {
+        border-bottom: 1px dashed #DDD;
+        padding: 1em 0;
+    }
+
+    .result_title {
+        display: inline-block;
+        min-width: 150px;
+
+        @include screen('xs_mobile') {
+            &:after {
+                content: "：";
+            }
+        }
+    }
+
+    .result_content {
+        display: inline-block;
+        color: darken($primaryColor, 10);
+
+        @include screen('xs_mobile') {
+            display: block;
+        }
+    }
+}
